@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    position: relative; /* Para posicionar el césped */
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+.flowers-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.flower {
+    position: relative;
+    width: 80px; /* Tamaño general de la flor */
+    height: 80px;
+    animation: grow 1.5s ease-out forwards;
+}
+
+.petal {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background-color: yellow; /* Color de los pétalos */
+    border-radius: 20px; /* Hace los pétalos más redondeados */
+    z-index: 1; /* Asegura que los pétalos estén encima */
+}
+
+.petal1 { top: 5px; left: 25px; transform: rotate(0deg); } /* Pétalo arriba */
+.petal2 { top: 14px; left: 13px; transform: rotate(90deg); } /* Pétalo izquierda */
+.petal3 { top: 14px; right: 13px; transform: rotate(90deg); } /* Pétalo derecha */
+.petal4 { bottom: 5px; left: 25px; transform: rotate(180deg); } /* Pétalo abajo */
+
+.center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ffd700; /* Color del centro */
+    border-radius: 50%;
+    top: 25px; /* Centrado verticalmente */
+    left: 25px; /* Centrado horizontalmente */
+    z-index: 2; /* Asegura que el centro esté encima */
+}
+
+.stem {
+    position: absolute;
+    width: 8px;
+    height: 40px; /* Altura del tallo */
+    background-color: green; /* Color del tallo */
+    top: 60px; /* Ubicación del tallo */
+    left: 36px; /* Centrado del tallo */
+    z-index: 0; /* Asegura que el tallo esté detrás */
+}
+
+.grass {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to bottom, #7CFC00 0%, #228B22 100%);
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
